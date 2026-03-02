@@ -14,3 +14,29 @@ export interface DocumentCategory {
   id: string;
   title: string;
 }
+
+export type QuestionStatus = 'correct' | 'wrong' | 'unattempted';
+
+export interface User {
+  id: string;
+  username: string;
+  password?: string; // Simple password for local multi-user
+  createdAt: number;
+}
+
+export interface UserRecord {
+  userId: string;
+  questionId: string;
+  status: QuestionStatus;
+  userAnswer?: string | string[];
+  timestamp: number;
+}
+
+export interface Statistics {
+  total: number;
+  attempted: number;
+  correct: number;
+  wrong: number;
+  accuracy: number;
+  progress: number;
+}
